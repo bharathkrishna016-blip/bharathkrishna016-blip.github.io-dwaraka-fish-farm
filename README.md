@@ -80,7 +80,7 @@
 
       background:
         linear-gradient(rgba(0,15,25,0.65), rgba(0,15,25,0.9)),
-        url("images/hero.jpg");
+        url("https://github.com/bharathkrishna016-blip/bharathkrishna016-blip.github.io-dwaraka-fish-farm/blob/e545f77308a020ab1cc84421d84fa2b198078970/hero.jpg.HEIC");
 
       background-size: cover;
       background-position: center;
