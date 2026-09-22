@@ -879,7 +879,7 @@ async function loadCategories(){
   try{
 
     const data = await supabaseRequest(
-      "/categories?select=id,name,image,description&order=id.asc"
+      "/categories?select=id,name,image&order=id.asc"
     );
 
 
@@ -954,9 +954,7 @@ async function loadCategories(){
             </h3>
 
             <p>
-              ${
-                category.description ||
-                "Explore available varieties."
+                Explore available varieties.
               }
             </p>
 
