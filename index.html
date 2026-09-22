@@ -1,11 +1,13 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Dwaraka Fish Farm | Ornamental Fish & Aquariums</title>
+
 <style>
+
 *{
   margin:0;
   padding:0;
@@ -19,6 +21,8 @@ body{
   color:#fff;
   line-height:1.6;
 }
+
+/* HEADER */
 
 header{
   position:fixed;
@@ -63,6 +67,8 @@ nav{
   color:#55e6c1;
 }
 
+/* HERO */
+
 .hero{
   min-height:100vh;
   display:flex;
@@ -106,6 +112,8 @@ nav{
   margin-bottom:30px!important;
 }
 
+/* BUTTON */
+
 .button{
   display:inline-block;
   padding:14px 27px;
@@ -116,6 +124,8 @@ nav{
   font-weight:bold;
   margin:6px;
   transition:.3s;
+  border:none;
+  cursor:pointer;
 }
 
 .button:hover{
@@ -128,6 +138,8 @@ nav{
   color:#fff;
   border:1px solid #55e6c1;
 }
+
+/* SECTIONS */
 
 section{
   padding:100px 20px;
@@ -151,6 +163,8 @@ section{
 .section-title p{
   color:#9db5bc;
 }
+
+/* ABOUT */
 
 .about{
   display:grid;
@@ -176,6 +190,8 @@ section{
   color:#b8cbd0;
   margin-bottom:18px;
 }
+
+/* PRODUCTS / CATEGORIES */
 
 .products{
   display:grid;
@@ -218,6 +234,108 @@ section{
   font-size:14px;
 }
 
+/* CATEGORY CARD */
+
+.category-card{
+  cursor:pointer;
+}
+
+.category-image{
+  width:100%;
+  height:240px;
+  object-fit:cover;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:
+    linear-gradient(145deg,#0b303d,#061820);
+  font-size:80px;
+}
+
+.category-content{
+  padding:23px;
+}
+
+.category-content h3{
+  font-size:22px;
+  margin-bottom:7px;
+}
+
+.category-content p{
+  color:#9db5bc;
+  font-size:14px;
+}
+
+/* PRODUCT AREA */
+
+#productArea{
+  margin-top:65px;
+}
+
+.product-title{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.product-title h3{
+  font-size:30px;
+  color:#55e6c1;
+}
+
+.product-card{
+  background:#09212b;
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:20px;
+  overflow:hidden;
+  transition:.35s;
+}
+
+.product-card:hover{
+  transform:translateY(-5px);
+  border-color:#55e6c1;
+}
+
+.product-card img{
+  width:100%;
+  height:230px;
+  object-fit:cover;
+  display:block;
+}
+
+.product-info{
+  padding:20px;
+}
+
+.product-info h3{
+  font-size:20px;
+  margin-bottom:5px;
+}
+
+.variety{
+  color:#55e6c1;
+  font-size:14px;
+  margin-bottom:10px;
+}
+
+.product-info p{
+  color:#9db5bc;
+  font-size:14px;
+  margin:5px 0;
+}
+
+.price{
+  font-size:22px;
+  font-weight:bold;
+  color:#fff;
+  margin-top:12px!important;
+}
+
+.stock{
+  color:#8fe3b9!important;
+}
+
+/* SERVICES */
+
 .services{
   display:grid;
   grid-template-columns:repeat(4,1fr);
@@ -243,6 +361,8 @@ section{
   margin-top:8px;
 }
 
+/* GALLERY */
+
 .gallery{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -261,6 +381,8 @@ section{
 .gallery img:hover{
   transform:scale(1.03);
 }
+
+/* CONTACT */
 
 .contact-box{
   max-width:850px;
@@ -282,6 +404,8 @@ section{
   margin:10px;
 }
 
+/* FOOTER */
+
 footer{
   text-align:center;
   padding:40px 20px;
@@ -292,6 +416,29 @@ footer{
 footer strong{
   color:#55e6c1;
 }
+
+/* LOADING */
+
+.loading{
+  grid-column:1/-1;
+  text-align:center;
+  color:#9db5bc;
+  padding:40px;
+  font-size:16px;
+}
+
+/* EMPTY MESSAGE */
+
+.empty-message{
+  grid-column:1/-1;
+  text-align:center;
+  color:#9db5bc;
+  padding:40px 20px;
+  background:#09212b;
+  border-radius:20px;
+}
+
+/* TABLET */
 
 @media(max-width:850px){
 
@@ -318,7 +465,10 @@ footer strong{
   .gallery{
     grid-template-columns:1fr 1fr;
   }
+
 }
+
+/* MOBILE */
 
 @media(max-width:520px){
 
@@ -351,236 +501,345 @@ footer strong{
   section{
     padding:75px 18px;
   }
+
 }
+
 </style>
 </head>
+
 <body>
+
+<!-- HEADER -->
+
 <header>
+
 <nav>
+
 <div class="logo">
 🐟 DWARAKA FISH FARM
 </div>
+
 <ul class="nav-links">
+
 <li><a href="#home">Home</a></li>
 <li><a href="#about">About</a></li>
 <li><a href="#products">Fish</a></li>
 <li><a href="#services">Services</a></li>
 <li><a href="#gallery">Gallery</a></li>
 <li><a href="#contact">Contact</a></li>
+
 </ul>
+
 </nav>
+
 </header>
+
+
+<!-- HERO -->
+
 <section class="hero" id="home">
+
 <div class="hero-content">
+
 <h1>
 Dwaraka <span>Fish Farm</span>
 </h1>
+
 <p>
 Ornamental Fish • Aquariums • Aquarium Plants
 </p>
+
 <p class="hero-sub">
 Bringing the beauty of underwater life to your home.
 </p>
+
 <a href="#products" class="button">
 Explore Our Collection
 </a>
+
 <a href="#contact" class="button button-outline">
 Contact Us
 </a>
+
 </div>
+
 </section>
+
+
+<!-- ABOUT -->
+
 <section id="about">
+
 <div class="container">
+
 <div class="about">
+
 <div class="about-text">
+
 <h2>About Dwaraka Fish Farm</h2>
+
 <p>
 Welcome to Dwaraka Fish Farm, your destination for
 beautiful ornamental fish, aquarium plants and
 aquarium solutions in Kozhikode, Kerala.
 </p>
+
 <p>
 We provide healthy and carefully maintained fish
 for hobbyists, beginners and aquarium enthusiasts.
 </p>
+
 <p>
 From individual fish to complete aquarium setups,
 we aim to make aquarium keeping simple, beautiful
 and enjoyable.
 </p>
+
 <a href="#contact" class="button">
 Visit Us
 </a>
+
 </div>
+
 <div>
+
 <img src="images/farm.jpg" alt="Dwaraka Fish Farm">
+
 </div>
+
 </div>
+
 </div>
+
 </section>
+
+
+<!-- DYNAMIC COLLECTION -->
+
 <section id="products">
+
 <div class="container">
+
 <div class="section-title">
+
 <h2>Our Collection</h2>
+
 <p>
-Explore some of the varieties available at our farm.
+Choose a category to explore our available varieties.
 </p>
+
 </div>
+
+
+<!-- CATEGORIES WILL APPEAR HERE -->
+
 <div class="products" id="categoryGrid">
-<div class="card">
-<img src="images/guppy.jpg" alt="Guppy fish">
-<div class="card-content">
-<h3>Guppies</h3>
-<p>Colourful and active ornamental fish.</p>
+
+<div class="loading">
+Loading categories...
 </div>
+
 </div>
-<div class="card">
-<img src="images/betta.jpeg" alt="Betta fish">
-<div class="card-content">
-<h3>Betta</h3>
-<p>Beautiful freshwater fish with stunning colours.</p>
+
+
+<!-- PRODUCTS WILL APPEAR HERE -->
+
+<div id="productArea"></div>
+
 </div>
-</div>
-<div class="card">
-<img src="images/molly.jpg" alt="Molly fish">
-<div class="card-content">
-<h3>Molly</h3>
-<p>Hardy and beginner-friendly ornamental fish.</p>
-</div>
-</div>
-<div class="card">
-<img src="images/goldfish.jpg" alt="Goldfish">
-<div class="card-content">
-<h3>Goldfish</h3>
-<p>A classic aquarium favourite.</p>
-</div>
-</div>
-<div class="card">
-<img src="images/plants.jpg" alt="Aquarium plants">
-<div class="card-content">
-<h3>Aquarium Plants</h3>
-<p>Natural plants for beautiful aquascapes.</p>
-</div>
-</div>
-<div class="card">
-<img src="images/aquarium.png" alt="Custom aquarium">
-<div class="card-content">
-<h3>Custom Aquariums</h3>
-<p>Aquariums designed according to your requirements.</p>
-</div>
-</div>
-</div>
-</div>
+
 </section>
+
+
+<!-- SERVICES -->
+
 <section id="services">
+
 <div class="container">
+
 <div class="section-title">
+
 <h2>What We Offer</h2>
+
 <p>
 Everything you need to create your own underwater world.
 </p>
+
 </div>
+
+
 <div class="services">
+
+
 <div class="service">
+
 <div class="icon">🐟</div>
+
 <h3>Ornamental Fish</h3>
-<p>Different varieties and colour strains.</p>
+
+<p>
+Different varieties and colour strains.
+</p>
+
 </div>
+
+
 <div class="service">
+
 <div class="icon">🌿</div>
+
 <h3>Aquarium Plants</h3>
-<p>Plants for natural and planted aquariums.</p>
+
+<p>
+Plants for natural and planted aquariums.
+</p>
+
 </div>
+
+
 <div class="service">
+
 <div class="icon">🪟</div>
+
 <h3>Custom Aquariums</h3>
-<p>Aquarium construction and setup.</p>
+
+<p>
+Aquarium construction and setup.
+</p>
+
 </div>
+
+
 <div class="service">
+
 <div class="icon">🚚</div>
+
 <h3>Delivery</h3>
-<p>Contact us for available delivery options.</p>
+
+<p>
+Contact us for available delivery options.
+</p>
+
 </div>
+
+
 </div>
+
 </div>
+
 </section>
+
+
+<!-- GALLERY -->
+
 <section id="gallery">
+
 <div class="container">
+
 <div class="section-title">
+
 <h2>Our Gallery</h2>
+
 <p>
 A glimpse into Dwaraka Fish Farm.
 </p>
+
 </div>
+
+
 <div class="gallery">
+
 <img src="images/gallery1.png" alt="Dwaraka Fish Farm">
+
 <img src="images/gallery2.jpg" alt="Ornamental fish">
+
 <img src="images/gallery3.png" alt="Aquarium">
+
 <img src="images/gallery4.jpg" alt="Aquarium fish">
+
 <img src="images/gallery5.webp" alt="Fish farm">
+
 <img src="images/gallery6.jpg" alt="Aquarium plants">
+
 </div>
+
 </div>
+
 </section>
+
+
+<!-- CONTACT -->
+
 <section id="contact">
+
 <div class="container">
+
 <div class="contact-box">
+
 <h2>Visit Dwaraka Fish Farm</h2>
+
 <p>
 Have a question about fish, plants or aquariums?
 </p>
+
 <p>
 Contact us directly on WhatsApp or phone.
 </p>
+
 <a href="https://wa.me/919495749236" class="button">
 💬 WhatsApp Us
 </a>
+
 <a href="tel:+919495749236" class="button button-outline">
 📞 Call Us
 </a>
+
 <p>
 📱9495749236
 </p>
+
 <p>
 📍 Kozhikode, Kerala, India
 </p>
+
 </div>
+
 </div>
+
 </section>
+
+
+<!-- FOOTER -->
+
 <footer>
+
 <p>
 © 2026 <strong>Dwaraka Fish Farm</strong>
 </p>
+
 <p>
 Ornamental Fish • Aquariums • Aquarium Plants
 </p>
+
 </footer>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<!-- SUPABASE -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
-const SUPABASE_URL = "https://igrmwmevgcrkrmuvimlg.supabase.co";
-const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imlncm13bWV2Z2Nya3JtdXZpbWxnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAwNTI3ODMsImV4cCI6MjEwNTYyODc4M30.0XlWhgb7Rspa63xGfUSdM155kH2NZ-vPgCUHHlBlnxI";
 
-const supabaseClient = supabase.createClient(
-  SUPABASE_URL,
-  SUPABASE_ANON_KEY
-);
+const SUPABASE_URL =
+"https://igrmwmevgcrkrmuvimlg.supabase.co";
 
-async function testSupabase() {
-  const { data, error } = await supabaseClient
-    .from("categories")
-    .select("*")
-    .order("id");
 
-  if (error) {
-    console.error("Supabase error:", error);
-    return;
-  }
+/*
+IMPORTANT:
+Paste your existing Supabase ANON PUBLIC KEY
+between the quotation marks below.
+*/
 
-  console.log("Categories loaded:", data);
-}
-
-testSupabase();
-</script>
-</body>
-</html>
+const SUPABASE_ANON_KEY =
+"
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imlncm13bWV2Z2Nya3JtdXZpbWxnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAwNTI3ODMsImV4cCI6MjEwNTYyODc4M30.0XlWhgb7Rspa63xGfUSdM155kH2NZ-vPgCUHHlBlnxI
