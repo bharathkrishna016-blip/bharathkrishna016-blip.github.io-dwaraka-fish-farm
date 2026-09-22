@@ -3,25 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Dwaraka Fish Farm | Ornamental Fish & Aquariums</title>
-
 <style>
-
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
   scroll-behavior:smooth;
 }
-
 body{
   font-family:Arial,Helvetica,sans-serif;
   background:#031016;
   color:#fff;
   line-height:1.6;
 }
-
+/* HEADER */
 header{
   position:fixed;
   top:0;
@@ -31,7 +27,6 @@ header{
   backdrop-filter:blur(15px);
   border-bottom:1px solid rgba(255,255,255,.08);
 }
-
 nav{
   max-width:1200px;
   margin:auto;
@@ -40,31 +35,58 @@ nav{
   justify-content:space-between;
   align-items:center;
 }
-
 .logo{
   font-size:21px;
   font-weight:bold;
   color:#55e6c1;
   letter-spacing:.5px;
 }
-
 .nav-links{
   display:flex;
   gap:25px;
   list-style:none;
 }
-
 .nav-links a{
   color:#fff;
   text-decoration:none;
   font-size:15px;
-  transition:.3s;
 }
-
 .nav-links a:hover{
   color:#55e6c1;
 }
-
+/* CART BUTTON */
+.cart-button{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  z-index:2000;
+  width:62px;
+  height:62px;
+  border-radius:50%;
+  border:none;
+  background:#55e6c1;
+  color:#031016;
+  font-size:27px;
+  cursor:pointer;
+  box-shadow:0 8px 30px rgba(0,0,0,.4);
+}
+.cart-count{
+  position:absolute;
+  top:-5px;
+  right:-3px;
+  min-width:23px;
+  height:23px;
+  padding:0 6px;
+  border-radius:20px;
+  background:#ff5757;
+  color:#fff;
+  font-size:12px;
+  font-weight:bold;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+/* HERO */
 .hero{
   min-height:100vh;
   display:flex;
@@ -72,42 +94,34 @@ nav{
   justify-content:center;
   text-align:center;
   padding:120px 20px 70px;
-
   background:
   linear-gradient(rgba(0,12,20,.45),rgba(0,10,17,.9)),
   url("images/hero.jpg");
-
   background-size:cover;
   background-position:center;
 }
-
 .hero-content{
   max-width:900px;
 }
-
 .hero h1{
   font-size:clamp(48px,9vw,90px);
   line-height:1;
   margin-bottom:25px;
   letter-spacing:-3px;
 }
-
 .hero h1 span{
   color:#55e6c1;
 }
-
 .hero p{
   font-size:20px;
   color:#d7e6e9;
   margin-bottom:12px;
 }
-
 .hero-sub{
   font-size:16px!important;
   color:#a9c0c6!important;
   margin-bottom:30px!important;
 }
-
 .button{
   display:inline-block;
   padding:14px 27px;
@@ -121,48 +135,41 @@ nav{
   border:none;
   cursor:pointer;
 }
-
 .button:hover{
   transform:translateY(-3px);
   box-shadow:0 12px 30px rgba(85,230,193,.25);
 }
-
 .button-outline{
   background:transparent;
   color:#fff;
   border:1px solid #55e6c1;
 }
-
+/* SECTIONS */
 section{
   padding:100px 20px;
 }
-
 .container{
   max-width:1150px;
   margin:auto;
 }
-
 .section-title{
   text-align:center;
   margin-bottom:55px;
 }
-
 .section-title h2{
   font-size:42px;
   margin-bottom:10px;
 }
-
 .section-title p{
   color:#9db5bc;
 }
-
+/* ABOUT */
 .about{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:55px;
   align-items:center;
 }
-
 .about img{
   width:100%;
   height:500px;
@@ -170,23 +177,20 @@ section{
   border-radius:24px;
   box-shadow:0 20px 50px rgba(0,0,0,.3);
 }
-
 .about-text h2{
   font-size:42px;
   margin-bottom:20px;
 }
-
 .about-text p{
   color:#b8cbd0;
   margin-bottom:18px;
 }
-
+/* PRODUCTS */
 .products{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:24px;
 }
-
 .card{
   background:#09212b;
   border:1px solid rgba(255,255,255,.07);
@@ -194,63 +198,50 @@ section{
   overflow:hidden;
   transition:.35s;
 }
-
 .card:hover{
   transform:translateY(-8px);
   border-color:#55e6c1;
-  box-shadow:0 15px 35px rgba(0,0,0,.25);
 }
-
 .card img{
   width:100%;
   height:240px;
   object-fit:cover;
   display:block;
 }
-
 .category-card{
   cursor:pointer;
 }
-
 .category-image{
   width:100%;
   height:240px;
   display:flex;
   align-items:center;
   justify-content:center;
-  background:
-    linear-gradient(145deg,#0b303d,#061820);
+  background:linear-gradient(145deg,#0b303d,#061820);
   font-size:80px;
 }
-
 .category-content{
   padding:23px;
 }
-
 .category-content h3{
   font-size:22px;
   margin-bottom:7px;
 }
-
 .category-content p{
   color:#9db5bc;
   font-size:14px;
 }
-
 #productArea{
   margin-top:65px;
 }
-
 .product-title{
   text-align:center;
   margin-bottom:30px;
 }
-
 .product-title h3{
   font-size:30px;
   color:#55e6c1;
 }
-
 .product-card{
   background:#09212b;
   border:1px solid rgba(255,255,255,.07);
@@ -258,57 +249,69 @@ section{
   overflow:hidden;
   transition:.35s;
 }
-
 .product-card:hover{
   transform:translateY(-5px);
   border-color:#55e6c1;
 }
-
 .product-card img{
   width:100%;
   height:230px;
   object-fit:cover;
   display:block;
 }
-
 .product-info{
   padding:20px;
 }
-
 .product-info h3{
   font-size:20px;
   margin-bottom:5px;
 }
-
 .variety{
   color:#55e6c1;
   font-size:14px;
   margin-bottom:10px;
 }
-
 .product-info p{
   color:#9db5bc;
   font-size:14px;
   margin:5px 0;
 }
-
 .price{
   font-size:22px;
   font-weight:bold;
-  color:#fff;
+  color:#fff!important;
   margin-top:12px!important;
 }
-
 .stock{
   color:#8fe3b9!important;
 }
-
+/* ADD TO CART */
+.add-cart{
+  width:100%;
+  margin-top:15px;
+  padding:12px;
+  border:none;
+  border-radius:12px;
+  background:#55e6c1;
+  color:#031016;
+  font-weight:bold;
+  font-size:15px;
+  cursor:pointer;
+}
+.add-cart:hover{
+  box-shadow:0 8px 20px rgba(85,230,193,.2);
+}
+.add-cart:disabled{
+  background:#40545a;
+  color:#9aa;
+  cursor:not-allowed;
+}
+/* SERVICES */
 .services{
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:20px;
 }
-
 .service{
   text-align:center;
   padding:35px 20px;
@@ -316,37 +319,28 @@ section{
   border-radius:20px;
   border:1px solid rgba(255,255,255,.06);
 }
-
 .service .icon{
   font-size:42px;
   margin-bottom:15px;
 }
-
 .service p{
   color:#9db5bc;
   font-size:14px;
   margin-top:8px;
 }
-
+/* GALLERY */
 .gallery{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:15px;
 }
-
 .gallery img{
   width:100%;
   height:280px;
   object-fit:cover;
   border-radius:18px;
-  transition:.35s;
-  display:block;
 }
-
-.gallery img:hover{
-  transform:scale(1.03);
-}
-
+/* CONTACT */
 .contact-box{
   max-width:850px;
   margin:auto;
@@ -356,36 +350,31 @@ section{
   text-align:center;
   border:1px solid rgba(255,255,255,.07);
 }
-
 .contact-box h2{
   font-size:38px;
   margin-bottom:15px;
 }
-
 .contact-box p{
   color:#b9cbd0;
   margin:10px;
 }
-
+/* FOOTER */
 footer{
   text-align:center;
   padding:40px 20px;
   background:#02090d;
   color:#71868d;
 }
-
 footer strong{
   color:#55e6c1;
 }
-
+/* MESSAGES */
 .loading{
   grid-column:1/-1;
   text-align:center;
   color:#9db5bc;
   padding:40px;
-  font-size:16px;
 }
-
 .empty-message{
   grid-column:1/-1;
   text-align:center;
@@ -394,7 +383,6 @@ footer strong{
   background:#09212b;
   border-radius:20px;
 }
-
 .error-message{
   grid-column:1/-1;
   text-align:center;
@@ -404,399 +392,362 @@ footer strong{
   border:1px solid #71333d;
   border-radius:20px;
 }
-
 .error-message h3{
   color:#ff7777;
   margin-bottom:12px;
 }
-
-.error-message p{
-  color:#d8bfc3;
-  font-size:14px;
-  word-break:break-word;
+/* CART PANEL */
+.cart-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.65);
+  z-index:3000;
+  display:none;
 }
-
+.cart-overlay.active{
+  display:block;
+}
+.cart-panel{
+  position:absolute;
+  right:0;
+  top:0;
+  width:min(430px,100%);
+  height:100%;
+  background:#061820;
+  padding:25px;
+  overflow-y:auto;
+  box-shadow:-10px 0 40px rgba(0,0,0,.4);
+}
+.cart-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:25px;
+  padding-bottom:15px;
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+.cart-header h2{
+  color:#55e6c1;
+}
+.close-cart{
+  border:none;
+  background:transparent;
+  color:#fff;
+  font-size:30px;
+  cursor:pointer;
+}
+.cart-item{
+  display:flex;
+  gap:12px;
+  padding:15px 0;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.cart-item img{
+  width:70px;
+  height:70px;
+  object-fit:cover;
+  border-radius:10px;
+}
+.cart-item-info{
+  flex:1;
+}
+.cart-item-info h4{
+  font-size:15px;
+}
+.cart-item-info p{
+  color:#55e6c1;
+  font-size:14px;
+}
+.quantity-controls{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:8px;
+}
+.quantity-controls button{
+  width:27px;
+  height:27px;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+  font-weight:bold;
+}
+.remove-item{
+  margin-top:7px;
+  border:none;
+  background:transparent;
+  color:#ff7777;
+  cursor:pointer;
+  font-size:12px;
+}
+.cart-total{
+  margin-top:25px;
+  padding-top:20px;
+  border-top:1px solid rgba(255,255,255,.12);
+  display:flex;
+  justify-content:space-between;
+  font-size:22px;
+  font-weight:bold;
+}
+.empty-cart{
+  text-align:center;
+  color:#9db5bc;
+  padding:60px 10px;
+}
+/* MOBILE */
 @media(max-width:850px){
-
   .nav-links{
     display:none;
   }
-
   .about{
     grid-template-columns:1fr;
   }
-
   .about img{
     height:350px;
   }
-
   .products{
     grid-template-columns:1fr 1fr;
   }
-
   .services{
     grid-template-columns:1fr 1fr;
   }
-
   .gallery{
     grid-template-columns:1fr 1fr;
   }
-
 }
-
 @media(max-width:520px){
-
   .hero h1{
     font-size:52px;
   }
-
   .hero p{
     font-size:17px;
   }
-
   .products,
   .services,
   .gallery{
     grid-template-columns:1fr;
   }
-
   .gallery img{
     height:250px;
   }
-
-  .section-title h2{
-    font-size:34px;
-  }
-
+  .section-title h2,
   .about-text h2{
     font-size:34px;
   }
-
   section{
     padding:75px 18px;
   }
-
 }
-
 </style>
 </head>
-
 <body>
-
 <header>
-
 <nav>
-
 <div class="logo">
 🐟 DWARAKA FISH FARM
 </div>
-
 <ul class="nav-links">
-
 <li><a href="#home">Home</a></li>
 <li><a href="#about">About</a></li>
 <li><a href="#products">Fish</a></li>
 <li><a href="#services">Services</a></li>
 <li><a href="#gallery">Gallery</a></li>
 <li><a href="#contact">Contact</a></li>
-
 </ul>
-
 </nav>
-
 </header>
-
-
+<!-- FLOATING CART -->
+<button class="cart-button" onclick="openCart()">
+🛒
+<span class="cart-count" id="cartCount">0</span>
+</button>
+<!-- HERO -->
 <section class="hero" id="home">
-
 <div class="hero-content">
-
 <h1>
 Dwaraka <span>Fish Farm</span>
 </h1>
-
 <p>
 Ornamental Fish • Aquariums • Aquarium Plants
 </p>
-
 <p class="hero-sub">
 Bringing the beauty of underwater life to your home.
 </p>
-
 <a href="#products" class="button">
 Explore Our Collection
 </a>
-
 <a href="#contact" class="button button-outline">
 Contact Us
 </a>
-
 </div>
-
 </section>
-
-
+<!-- ABOUT -->
 <section id="about">
-
 <div class="container">
-
 <div class="about">
-
 <div class="about-text">
-
 <h2>About Dwaraka Fish Farm</h2>
-
 <p>
 Welcome to Dwaraka Fish Farm, your destination for
 beautiful ornamental fish, aquarium plants and
 aquarium solutions in Kozhikode, Kerala.
 </p>
-
 <p>
 We provide healthy and carefully maintained fish
 for hobbyists, beginners and aquarium enthusiasts.
 </p>
-
 <p>
 From individual fish to complete aquarium setups,
 we aim to make aquarium keeping simple, beautiful
 and enjoyable.
 </p>
-
 <a href="#contact" class="button">
 Visit Us
 </a>
-
 </div>
-
 <div>
-
 <img src="images/farm.jpg" alt="Dwaraka Fish Farm">
-
 </div>
-
 </div>
-
 </div>
-
 </section>
-
-
+<!-- PRODUCTS -->
 <section id="products">
-
 <div class="container">
-
 <div class="section-title">
-
 <h2>Our Collection</h2>
-
 <p>
 Choose a category to explore our available varieties.
 </p>
-
 </div>
-
 <div class="products" id="categoryGrid">
-
 <div class="loading">
 Loading categories...
 </div>
-
 </div>
-
 <div id="productArea"></div>
-
 </div>
-
 </section>
-
-
+<!-- SERVICES -->
 <section id="services">
-
 <div class="container">
-
 <div class="section-title">
-
 <h2>What We Offer</h2>
-
 <p>
 Everything you need to create your own underwater world.
 </p>
-
 </div>
-
 <div class="services">
-
 <div class="service">
-
 <div class="icon">🐟</div>
-
 <h3>Ornamental Fish</h3>
-
-<p>
-Different varieties and colour strains.
-</p>
-
+<p>Different varieties and colour strains.</p>
 </div>
-
 <div class="service">
-
 <div class="icon">🌿</div>
-
 <h3>Aquarium Plants</h3>
-
-<p>
-Plants for natural and planted aquariums.
-</p>
-
+<p>Plants for natural and planted aquariums.</p>
 </div>
-
 <div class="service">
-
 <div class="icon">🪟</div>
-
 <h3>Custom Aquariums</h3>
-
-<p>
-Aquarium construction and setup.
-</p>
-
+<p>Aquarium construction and setup.</p>
 </div>
-
 <div class="service">
-
 <div class="icon">🚚</div>
-
 <h3>Delivery</h3>
-
-<p>
-Contact us for available delivery options.
-</p>
-
+<p>Contact us for available delivery options.</p>
 </div>
-
 </div>
-
 </div>
-
 </section>
-
-
+<!-- GALLERY -->
 <section id="gallery">
-
 <div class="container">
-
 <div class="section-title">
-
 <h2>Our Gallery</h2>
-
 <p>
 A glimpse into Dwaraka Fish Farm.
 </p>
-
 </div>
-
 <div class="gallery">
-
 <img src="images/gallery1.png" alt="Dwaraka Fish Farm">
-
 <img src="images/gallery2.jpg" alt="Ornamental fish">
-
 <img src="images/gallery3.png" alt="Aquarium">
-
 <img src="images/gallery4.jpg" alt="Aquarium fish">
-
 <img src="images/gallery5.webp" alt="Fish farm">
-
 <img src="images/gallery6.jpg" alt="Aquarium plants">
-
 </div>
-
 </div>
-
 </section>
-
-
+<!-- CONTACT -->
 <section id="contact">
-
 <div class="container">
-
 <div class="contact-box">
-
 <h2>Visit Dwaraka Fish Farm</h2>
-
 <p>
 Have a question about fish, plants or aquariums?
 </p>
-
 <p>
 Contact us directly on WhatsApp or phone.
 </p>
-
 <a href="https://wa.me/919495749236" class="button">
 💬 WhatsApp Us
 </a>
-
 <a href="tel:+919495749236" class="button button-outline">
 📞 Call Us
 </a>
-
-<p>
-📱 9495749236
-</p>
-
-<p>
-📍 Kozhikode, Kerala, India
-</p>
-
+<p>📱 9495749236</p>
+<p>📍 Kozhikode, Kerala, India</p>
 </div>
-
 </div>
-
 </section>
-
-
 <footer>
-
 <p>
 © 2026 <strong>Dwaraka Fish Farm</strong>
 </p>
-
 <p>
 Ornamental Fish • Aquariums • Aquarium Plants
 </p>
-
 </footer>
-
-
+<!-- CART -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart(event)">
+<div class="cart-panel" onclick="event.stopPropagation()">
+<div class="cart-header">
+<h2>🛒 Your Cart</h2>
+<button class="close-cart" onclick="closeCart()">
+×
+</button>
+</div>
+<div id="cartItems"></div>
+<div class="cart-total">
+<span>Total</span>
+<span id="cartTotal">
+₹0
+</span>
+</div>
+<button class="button" style="width:100%;margin:25px 0 0;">
+Proceed to Checkout
+</button>
+</div>
+</div>
 <!-- SUPABASE -->
-
 <script>
-
 const SUPABASE_REST_URL =
 "https://igrmwmevgcrkrmuvimlg.supabase.co/rest/v1";
-
-
 /*
 ====================================================
-IMPORTANT
-PASTE YOUR SUPABASE ANON PUBLIC KEY BELOW
+KEEP YOUR EXISTING SUPABASE ANON PUBLIC KEY HERE
 ====================================================
 */
-
 const SUPABASE_ANON_KEY =
 "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imlncm13bWV2Z2Nya3JtdXZpbWxnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAwNTI3ODMsImV4cCI6MjEwNTYyODc4M30.0XlWhgb7Rspa63xGfUSdM155kH2NZ-vPgCUHHlBlnxI";
-
-
 /* DATABASE REQUEST */
-
 async function supabaseRequest(endpoint){
-
   const response = await fetch(
     SUPABASE_REST_URL + endpoint,
     {
       method:"GET",
-
       headers:{
         "apikey":SUPABASE_ANON_KEY,
         "Authorization":"Bearer " + SUPABASE_ANON_KEY,
@@ -804,20 +755,15 @@ async function supabaseRequest(endpoint){
       }
     }
   );
-
   const text = await response.text();
-
   let data;
-
   try{
     data = JSON.parse(text);
   }
   catch{
     data = text;
   }
-
   if(!response.ok){
-
     throw new Error(
       "HTTP " +
       response.status +
@@ -830,19 +776,203 @@ async function supabaseRequest(endpoint){
         "Unknown error"
       )
     );
-
   }
-
   return data;
 }
-
-
+/* ================================
+   CART
+================================ */
+let cart = JSON.parse(
+  localStorage.getItem("dwarakaCart") || "[]"
+);
+/* SAVE CART */
+function saveCart(){
+  localStorage.setItem(
+    "dwarakaCart",
+    JSON.stringify(cart)
+  );
+  updateCartCount();
+}
+/* CART COUNT */
+function updateCartCount(){
+  const count =
+    cart.reduce(
+      (total,item) => total + item.quantity,
+      0
+    );
+  document.getElementById("cartCount").textContent =
+    count;
+}
+/* ADD TO CART */
+function addToCart(product){
+  const existing =
+    cart.find(
+      item => item.id === product.id
+    );
+  if(existing){
+    if(existing.quantity < product.stock){
+      existing.quantity++;
+    }
+    else{
+      alert(
+        "You cannot add more than the available stock."
+      );
+      return;
+    }
+  }
+  else{
+    cart.push({
+      id:product.id,
+      name:product.name,
+      variety:product.variety || "",
+      price:Number(product.price) || 0,
+      image:product.image || "images/hero.jpg",
+      stock:Number(product.stock) || 0,
+      quantity:1
+    });
+  }
+  saveCart();
+  alert(
+    product.name + " added to cart!"
+  );
+}
+/* OPEN CART */
+function openCart(){
+  document
+    .getElementById("cartOverlay")
+    .classList
+    .add("active");
+  renderCart();
+}
+/* CLOSE CART */
+function closeCart(event){
+  if(
+    event &&
+    event.target !==
+    document.getElementById("cartOverlay")
+  ){
+    return;
+  }
+  document
+    .getElementById("cartOverlay")
+    .classList
+    .remove("active");
+}
+/* CHANGE QUANTITY */
+function changeQuantity(id,change){
+  const item =
+    cart.find(
+      item => item.id === id
+    );
+  if(!item) return;
+  const newQuantity =
+    item.quantity + change;
+  if(newQuantity <= 0){
+    removeFromCart(id);
+    return;
+  }
+  if(newQuantity > item.stock){
+    alert(
+      "Only " +
+      item.stock +
+      " available in stock."
+    );
+    return;
+  }
+  item.quantity =
+    newQuantity;
+  saveCart();
+  renderCart();
+}
+/* REMOVE */
+function removeFromCart(id){
+  cart =
+    cart.filter(
+      item => item.id !== id
+    );
+  saveCart();
+  renderCart();
+}
+/* RENDER CART */
+function renderCart(){
+  const cartItems =
+    document.getElementById("cartItems");
+  const cartTotal =
+    document.getElementById("cartTotal");
+  if(cart.length === 0){
+    cartItems.innerHTML = `
+      <div class="empty-cart">
+        <div style="font-size:50px;">
+          🛒
+        </div>
+        <p>
+          Your cart is empty.
+        </p>
+        <p style="font-size:13px;margin-top:8px;">
+          Add some beautiful fish to get started.
+        </p>
+      </div>
+    `;
+    cartTotal.textContent = "₹0";
+    return;
+  }
+  let total = 0;
+  cartItems.innerHTML =
+    cart.map(item => {
+      const itemTotal =
+        item.price * item.quantity;
+      total += itemTotal;
+      return `
+        <div class="cart-item">
+          <img
+            src="${item.image}"
+            alt="${item.name}"
+          >
+          <div class="cart-item-info">
+            <h4>
+              ${item.name}
+            </h4>
+            ${
+              item.variety
+              ?
+              `<p>${item.variety}</p>`
+              :
+              ""
+            }
+            <p>
+              ₹${item.price} each
+            </p>
+            <div class="quantity-controls">
+              <button
+                onclick="changeQuantity(${item.id},-1)"
+              >
+                −
+              </button>
+              <strong>
+                ${item.quantity}
+              </strong>
+              <button
+                onclick="changeQuantity(${item.id},1)"
+              >
+                +
+              </button>
+            </div>
+            <button
+              class="remove-item"
+              onclick="removeFromCart(${item.id})"
+            >
+              Remove
+            </button>
+          </div>
+        </div>
+      `;
+    }).join("");
+  cartTotal.textContent =
+    "₹" + total;
+}
 /* CATEGORY ICONS */
-
 function getCategoryIcon(name){
-
   const n = name.toLowerCase();
-
   if(n.includes("guppy")) return "🐟";
   if(n.includes("tetra")) return "🐠";
   if(n.includes("barb")) return "🐟";
@@ -857,403 +987,266 @@ function getCategoryIcon(name){
   if(n.includes("plant")) return "🌿";
   if(n.includes("aquarium")) return "🪟";
   if(n.includes("accessor")) return "⚙️";
-
   return "🐟";
 }
-
-
 /* LOAD CATEGORIES */
-
 async function loadCategories(){
-
   const categoryGrid =
     document.getElementById("categoryGrid");
-
   categoryGrid.innerHTML = `
     <div class="loading">
       Connecting to Dwaraka Fish Farm database...
     </div>
   `;
-
-
   try{
-
     const data = await supabaseRequest(
       "/categories?select=id,name,image&order=id.asc"
     );
-
-
     if(!data || data.length === 0){
-
       categoryGrid.innerHTML = `
-
         <div class="empty-message">
-
           <h3>No Categories Found</h3>
-
           <p>
             The database connection is working,
             but no categories were found.
           </p>
-
         </div>
-
       `;
-
       return;
     }
-
-
     categoryGrid.innerHTML = data.map(category => {
-
       const icon =
         getCategoryIcon(category.name);
-
-
       const image =
         category.image &&
         category.image.trim() !== ""
-
         ?
-
         `
         <img
           src="${category.image}"
           alt="${category.name}"
         >
         `
-
         :
-
         `
         <div class="category-image">
           ${icon}
         </div>
         `;
-
-
       const safeName =
         String(category.name)
         .replace(/\\/g,"\\\\")
         .replace(/'/g,"\\'");
-
-
       return `
-
         <div
           class="card category-card"
           onclick="loadProducts(${category.id}, '${safeName}')"
         >
-
           ${image}
-
           <div class="category-content">
-
             <h3>
               ${category.name}
             </h3>
-
             <p>
-                Explore available varieties.
-              }
+              Explore available varieties.
             </p>
-
           </div>
-
         </div>
-
       `;
-
     }).join("");
-
-
   }
-
   catch(error){
-
     console.error(
       "SUPABASE CATEGORY ERROR:",
       error
     );
-
-
     categoryGrid.innerHTML = `
-
       <div class="error-message">
-
         <h3>
           Database Connection Error
         </h3>
-
         <p>
           ${error.message}
         </p>
-
         <p style="margin-top:15px;">
           Please check your Supabase URL,
           anon public key and RLS policy.
         </p>
-
       </div>
-
     `;
-
   }
-
 }
-
-
 /* LOAD PRODUCTS */
-
 async function loadProducts(
   categoryId,
   categoryName
 ){
-
   const productArea =
     document.getElementById("productArea");
-
-
   productArea.innerHTML = `
-
     <div class="product-title">
-
-      <h3>
-        ${categoryName}
-      </h3>
-
+      <h3>${categoryName}</h3>
       <p style="color:#9db5bc;">
         Loading available varieties...
       </p>
-
     </div>
-
   `;
-
-
   try{
-
     const data = await supabaseRequest(
       "/products?select=id,category_id,name,variety,description,size,price,stock,image,active&category_id=eq."
       + categoryId
       + "&active=eq.true&order=id.asc"
     );
-
-
     if(!data || data.length === 0){
-
       productArea.innerHTML = `
-
         <div class="product-title">
-
-          <h3>
-            ${categoryName}
-          </h3>
-
+          <h3>${categoryName}</h3>
         </div>
-
         <div class="empty-message">
-
           No varieties have been added
           to this category yet.
-
         </div>
-
       `;
-
       return;
     }
-
-
     productArea.innerHTML = `
-
       <div class="product-title">
-
-        <h3>
-          ${categoryName}
-        </h3>
-
+        <h3>${categoryName}</h3>
         <p style="color:#9db5bc;">
           Available varieties
         </p>
-
       </div>
-
-
       <div class="products">
-
         ${
           data.map(product => {
-
             const image =
               product.image &&
               product.image.trim() !== ""
-
               ? product.image
-
               : "images/hero.jpg";
-
-
+            const productJSON =
+              JSON.stringify({
+                id:product.id,
+                name:product.name,
+                variety:product.variety || "",
+                price:Number(product.price) || 0,
+                image:image,
+                stock:Number(product.stock) || 0
+              })
+              .replace(/'/g,"&#39;");
             return `
-
               <div class="product-card">
-
                 <img
                   src="${image}"
                   alt="${product.name}"
                 >
-
                 <div class="product-info">
-
                   <h3>
                     ${product.name}
                   </h3>
-
-
                   ${
                     product.variety
-
                     ?
-
                     `
                     <div class="variety">
                       ${product.variety}
                     </div>
                     `
-
                     :
-
                     ""
                   }
-
-
                   ${
                     product.description
-
                     ?
-
                     `
                     <p>
                       ${product.description}
                     </p>
                     `
-
                     :
-
                     ""
                   }
-
-
                   ${
                     product.size
-
                     ?
-
                     `
                     <p>
                       📏 Size: ${product.size}
                     </p>
                     `
-
                     :
-
                     ""
                   }
-
-
                   ${
                     product.price !== null
-
                     ?
-
                     `
                     <p class="price">
                       ₹${product.price}
                     </p>
                     `
-
                     :
-
                     ""
                   }
-
-
                   ${
                     product.stock > 0
-
                     ?
-
                     `
                     <p class="stock">
                       ✓ In Stock: ${product.stock}
                     </p>
+                    <button
+                      class="add-cart"
+                      onclick='addToCart(${productJSON})'
+                    >
+                      🛒 Add to Cart
+                    </button>
                     `
-
                     :
-
                     `
                     <p style="color:#ff8888;">
                       Out of Stock
                     </p>
+                    <button
+                      class="add-cart"
+                      disabled
+                    >
+                      Out of Stock
+                    </button>
                     `
                   }
-
                 </div>
-
               </div>
-
             `;
-
           }).join("")
         }
-
       </div>
-
     `;
-
-
     productArea.scrollIntoView({
       behavior:"smooth",
       block:"start"
     });
-
   }
-
-
   catch(error){
-
     console.error(
       "SUPABASE PRODUCT ERROR:",
       error
     );
-
-
     productArea.innerHTML = `
-
       <div class="error-message">
-
         <h3>
           Product Database Error
         </h3>
-
         <p>
           ${error.message}
         </p>
-
       </div>
-
     `;
-
   }
-
 }
-
-
-/* START WEBSITE */
-
+/* START */
+updateCartCount();
 loadCategories();
-
 </script>
-
 </body>
 </html>
