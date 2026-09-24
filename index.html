@@ -3,93 +3,220 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Dwaraka Fish Farm | Ornamental Fish & Aquariums</title>
-
 <style>
+
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
-}
-
-html{
   scroll-behavior:smooth;
 }
 
 body{
   font-family:Arial,Helvetica,sans-serif;
-  background:#06141b;
+  background:#031016;
   color:#fff;
   line-height:1.6;
+  overflow-x:hidden;
 }
 
 a{
   color:inherit;
-  text-decoration:none;
 }
 
-.container{
-  width:90%;
-  max-width:1200px;
-  margin:auto;
+button{
+  font-family:inherit;
 }
+
+/* =========================
+   HEADER
+========================= */
 
 header{
-  position:sticky;
+  position:fixed;
   top:0;
+  left:0;
+  width:100%;
   z-index:1000;
-  background:rgba(6,20,27,.95);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid #17313b;
+  background:rgba(2,12,18,.88);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(255,255,255,.08);
 }
 
-.nav{
-  min-height:70px;
+nav{
+  max-width:1200px;
+  margin:auto;
+  padding:17px 24px;
   display:flex;
-  align-items:center;
   justify-content:space-between;
-  gap:20px;
+  align-items:center;
 }
 
 .logo{
-  font-size:22px;
-  font-weight:bold;
+  font-size:20px;
+  font-weight:800;
   color:#55e6c1;
+  letter-spacing:.6px;
+  text-decoration:none;
+  white-space:nowrap;
 }
 
 .nav-links{
   display:flex;
-  gap:22px;
+  gap:25px;
+  list-style:none;
   align-items:center;
 }
 
 .nav-links a{
-  color:#c5d5da;
+  color:#fff;
+  text-decoration:none;
   font-size:14px;
+  transition:.3s;
 }
 
 .nav-links a:hover{
   color:#55e6c1;
 }
 
-.hero{
-  min-height:620px;
+/* Hamburger */
+
+.menu-button{
+  display:none;
+  width:45px;
+  height:45px;
+  border-radius:13px;
+  border:1px solid rgba(85,230,193,.25);
+  background:#09212b;
+  cursor:pointer;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  gap:5px;
+}
+
+.menu-button span{
+  width:21px;
+  height:2px;
+  background:#55e6c1;
+  border-radius:5px;
+  transition:.3s;
+}
+
+.menu-button.active span:nth-child(1){
+  transform:translateY(7px) rotate(45deg);
+}
+
+.menu-button.active span:nth-child(2){
+  opacity:0;
+}
+
+.menu-button.active span:nth-child(3){
+  transform:translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile menu */
+
+.mobile-menu{
+  position:fixed;
+  top:79px;
+  right:15px;
+  width:min(330px,calc(100% - 30px));
+  background:rgba(5,23,31,.98);
+  border:1px solid rgba(85,230,193,.18);
+  border-radius:20px;
+  padding:14px;
+  box-shadow:0 25px 60px rgba(0,0,0,.45);
+  transform:translateY(-15px) scale(.96);
+  opacity:0;
+  pointer-events:none;
+  transition:.25s ease;
+}
+
+.mobile-menu.open{
+  transform:translateY(0) scale(1);
+  opacity:1;
+  pointer-events:auto;
+}
+
+.mobile-menu a,
+.mobile-category-button{
+  width:100%;
   display:flex;
   align-items:center;
+  justify-content:space-between;
+  padding:14px 15px;
+  color:#fff;
+  text-decoration:none;
+  border-radius:12px;
+  background:transparent;
+  border:0;
+  font-size:15px;
+  cursor:pointer;
+  text-align:left;
+}
+
+.mobile-menu a:hover,
+.mobile-category-button:hover{
+  background:#092b35;
+  color:#55e6c1;
+}
+
+.mobile-category-list{
+  display:none;
+  padding:4px 8px 8px 18px;
+}
+
+.mobile-category-list.open{
+  display:block;
+}
+
+.mobile-category-list button{
+  width:100%;
+  border:0;
+  background:none;
+  color:#a9c0c6;
+  padding:10px 12px;
+  text-align:left;
+  cursor:pointer;
+  border-radius:10px;
+}
+
+.mobile-category-list button:hover{
+  background:#09212b;
+  color:#55e6c1;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:120px 20px 70px;
+
   background:
-    linear-gradient(rgba(3,15,21,.55),rgba(3,15,21,.9)),
-    url("images/hero.jpg") center/cover;
+  linear-gradient(rgba(0,12,20,.42),rgba(0,10,17,.93)),
+  url("images/hero.jpg");
+
+  background-size:cover;
+  background-position:center;
 }
 
 .hero-content{
-  max-width:700px;
+  max-width:900px;
 }
 
 .hero h1{
-  font-size:clamp(42px,7vw,76px);
+  font-size:clamp(48px,9vw,90px);
   line-height:1;
-  margin-bottom:20px;
+  margin-bottom:25px;
+  letter-spacing:-3px;
 }
 
 .hero h1 span{
@@ -97,1812 +224,1532 @@ header{
 }
 
 .hero p{
-  color:#c5d5da;
-  font-size:18px;
-  max-width:600px;
-  margin-bottom:30px;
+  font-size:20px;
+  color:#d7e6e9;
+  margin-bottom:12px;
+}
+
+.hero-sub{
+  font-size:16px!important;
+  color:#a9c0c6!important;
+  margin-bottom:30px!important;
 }
 
 .button{
   display:inline-block;
+  padding:14px 27px;
+  border-radius:30px;
   background:#55e6c1;
-  color:#06141b;
-  border:none;
-  padding:13px 22px;
-  border-radius:10px;
+  color:#031016;
+  text-decoration:none;
   font-weight:bold;
+  margin:6px;
+  transition:.3s;
+  border:none;
   cursor:pointer;
-  transition:.2s;
 }
 
 .button:hover{
-  transform:translateY(-2px);
-  opacity:.9;
+  transform:translateY(-3px);
+  box-shadow:0 12px 30px rgba(85,230,193,.25);
 }
 
+.button-outline{
+  background:transparent;
+  color:#fff;
+  border:1px solid #55e6c1;
+}
+
+/* =========================
+   GENERAL
+========================= */
+
 section{
-  padding:80px 0;
+  padding:100px 20px;
+}
+
+.container{
+  max-width:1150px;
+  margin:auto;
 }
 
 .section-title{
-  margin-bottom:35px;
+  text-align:center;
+  margin-bottom:50px;
 }
 
 .section-title h2{
-  font-size:36px;
-  margin-bottom:8px;
+  font-size:42px;
+  margin-bottom:10px;
 }
 
 .section-title p{
-  color:#8fa7ae;
+  color:#9db5bc;
 }
+
+/* =========================
+   ABOUT
+========================= */
 
 .about{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:40px;
+  gap:55px;
   align-items:center;
 }
 
 .about img{
   width:100%;
-  border-radius:20px;
-  max-height:450px;
+  height:500px;
   object-fit:cover;
+  border-radius:24px;
+  box-shadow:0 20px 50px rgba(0,0,0,.3);
+}
+
+.about-text h2{
+  font-size:42px;
+  margin-bottom:20px;
 }
 
 .about-text p{
-  color:#a9bcc2;
-  margin-bottom:15px;
+  color:#b8cbd0;
+  margin-bottom:18px;
 }
 
-.categories{
+/* =========================
+   CATEGORY GRID
+========================= */
+
+.products{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:18px;
-  margin-bottom:45px;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+
+.card{
+  background:#09212b;
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:20px;
+  overflow:hidden;
+  transition:.35s;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+  border-color:#55e6c1;
+  box-shadow:0 15px 35px rgba(0,0,0,.25);
 }
 
 .category-card{
-  background:#0a2029;
-  border:1px solid #173943;
-  border-radius:18px;
-  padding:20px;
-  text-align:center;
   cursor:pointer;
-  transition:.2s;
 }
 
-.category-card:hover{
-  border-color:#55e6c1;
-  transform:translateY(-4px);
+.category-image{
+  width:100%;
+  height:240px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(145deg,#0b303d,#061820);
+  font-size:80px;
 }
 
 .category-card img{
   width:100%;
-  height:140px;
+  height:240px;
   object-fit:cover;
-  border-radius:12px;
-  margin-bottom:12px;
+  display:block;
 }
 
-.category-card h3{
-  font-size:18px;
+.category-content{
+  padding:23px;
 }
 
-.products{
+.category-content h3{
+  font-size:22px;
+  margin-bottom:7px;
+}
+
+.category-content p{
+  color:#9db5bc;
+  font-size:14px;
+}
+
+/* =========================
+   PRODUCTS
+========================= */
+
+#productArea{
+  margin-top:65px;
+}
+
+.product-title{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.product-title h3{
+  font-size:32px;
+  color:#55e6c1;
+}
+
+.product-title p{
+  color:#9db5bc;
+}
+
+.product-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:22px;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
 }
 
 .product-card{
-  background:#0a2029;
-  border:1px solid #173943;
-  border-radius:18px;
+  background:#09212b;
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:20px;
   overflow:hidden;
-  transition:.2s;
+  transition:.35s;
 }
 
 .product-card:hover{
-  transform:translateY(-4px);
+  transform:translateY(-6px);
   border-color:#55e6c1;
+  box-shadow:0 15px 35px rgba(0,0,0,.25);
 }
 
 .product-card img{
   width:100%;
-  height:220px;
+  height:240px;
   object-fit:cover;
+  display:block;
 }
 
 .product-info{
-  padding:18px;
+  padding:20px;
 }
 
 .product-info h3{
-  font-size:21px;
-  margin-bottom:4px;
+  font-size:20px;
+  margin-bottom:5px;
 }
 
 .variety{
   color:#55e6c1;
   font-size:14px;
-  margin-bottom:8px;
+  margin-bottom:10px;
 }
 
-.description{
-  color:#94aab1;
+.product-info p{
+  color:#9db5bc;
   font-size:14px;
-  min-height:42px;
-}
-
-.product-meta{
-  display:flex;
-  justify-content:space-between;
-  margin:15px 0;
-  color:#b7c8cd;
-  font-size:14px;
+  margin:5px 0;
 }
 
 .price{
-  font-size:22px;
+  font-size:22px!important;
   font-weight:bold;
-  color:#55e6c1;
+  color:#fff!important;
+  margin-top:13px!important;
 }
 
 .stock{
-  color:#9fb2b8;
+  color:#8fe3b9!important;
 }
+
+.out-stock{
+  color:#ff8888!important;
+}
+
+.back-button{
+  display:block;
+  margin:0 auto 35px;
+  background:transparent;
+  color:#55e6c1;
+  border:1px solid #55e6c1;
+  padding:11px 20px;
+  border-radius:25px;
+  cursor:pointer;
+  font-weight:bold;
+  transition:.3s;
+}
+
+.back-button:hover{
+  background:#55e6c1;
+  color:#031016;
+}
+
+/* =========================
+   SERVICES
+========================= */
 
 .services{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  grid-template-columns:repeat(4,1fr);
   gap:20px;
 }
 
 .service{
-  background:#0a2029;
-  border:1px solid #173943;
-  padding:25px;
-  border-radius:18px;
+  text-align:center;
+  padding:35px 20px;
+  background:#09212b;
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,.06);
+  transition:.3s;
 }
 
-.service h3{
-  margin-bottom:8px;
+.service:hover{
+  transform:translateY(-5px);
+  border-color:rgba(85,230,193,.5);
+}
+
+.service .icon{
+  font-size:42px;
+  margin-bottom:15px;
 }
 
 .service p{
-  color:#91a8af;
+  color:#9db5bc;
+  font-size:14px;
+  margin-top:8px;
 }
+
+/* =========================
+   GALLERY
+========================= */
 
 .gallery{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  grid-template-columns:repeat(3,1fr);
   gap:15px;
 }
 
 .gallery img{
   width:100%;
-  height:220px;
+  height:280px;
   object-fit:cover;
-  border-radius:16px;
+  border-radius:18px;
+  transition:.35s;
+  display:block;
 }
 
+.gallery img:hover{
+  transform:scale(1.03);
+}
+
+/* =========================
+   CONTACT
+========================= */
+
 .contact-box{
-  background:#0a2029;
-  border:1px solid #173943;
-  padding:30px;
+  max-width:850px;
+  margin:auto;
+  background:linear-gradient(145deg,#0b2833,#071b24);
+  padding:55px 30px;
+  border-radius:28px;
+  text-align:center;
+  border:1px solid rgba(255,255,255,.07);
+}
+
+.contact-box h2{
+  font-size:38px;
+  margin-bottom:15px;
+}
+
+.contact-box p{
+  color:#b9cbd0;
+  margin:10px;
+}
+
+/* =========================
+   MESSAGES
+========================= */
+
+.loading{
+  grid-column:1/-1;
+  text-align:center;
+  color:#9db5bc;
+  padding:40px;
+  font-size:16px;
+}
+
+.empty-message{
+  grid-column:1/-1;
+  text-align:center;
+  color:#9db5bc;
+  padding:40px 20px;
+  background:#09212b;
   border-radius:20px;
 }
 
-footer{
-  padding:30px 0;
-  border-top:1px solid #17313b;
-  color:#789199;
+.error-message{
+  grid-column:1/-1;
   text-align:center;
-}
-
-/* CART */
-
-.cart-button{
-  position:fixed;
-  right:20px;
-  bottom:20px;
-  z-index:2000;
-  width:60px;
-  height:60px;
-  border-radius:50%;
-  border:none;
-  background:#55e6c1;
-  color:#06141b;
-  font-size:25px;
-  cursor:pointer;
-  box-shadow:0 8px 30px rgba(0,0,0,.4);
-}
-
-.cart-count{
-  position:absolute;
-  right:-3px;
-  top:-3px;
-  background:#ff5c69;
   color:#fff;
-  width:22px;
-  height:22px;
-  border-radius:50%;
-  font-size:12px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:bold;
+  padding:35px 20px;
+  background:#25151a;
+  border:1px solid #71333d;
+  border-radius:20px;
 }
 
-.cart-overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.65);
-  z-index:3000;
-  display:none;
-  align-items:flex-end;
-  justify-content:flex-end;
-}
-
-.cart-overlay.active{
-  display:flex;
-}
-
-.cart-panel{
-  width:100%;
-  max-width:500px;
-  height:100%;
-  background:#071a22;
-  padding:25px;
-  overflow-y:auto;
-  box-shadow:-10px 0 40px rgba(0,0,0,.4);
-}
-
-.cart-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:25px;
-}
-
-.cart-header h2{
-  color:#55e6c1;
-}
-
-.close-cart{
-  border:none;
-  background:none;
-  color:#fff;
-  font-size:32px;
-  cursor:pointer;
-}
-
-.cart-item{
-  display:flex;
-  gap:12px;
-  padding:15px 0;
-  border-bottom:1px solid #17313b;
-}
-
-.cart-item img{
-  width:70px;
-  height:70px;
-  object-fit:cover;
-  border-radius:10px;
-}
-
-.cart-item-info{
-  flex:1;
-}
-
-.cart-item-info h4{
-  margin-bottom:3px;
-}
-
-.cart-item-price{
-  color:#55e6c1;
-  font-weight:bold;
-}
-
-.quantity-controls{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  margin-top:8px;
-}
-
-.quantity-controls button{
-  width:28px;
-  height:28px;
-  border:none;
-  border-radius:6px;
-  cursor:pointer;
-  background:#173943;
-  color:#fff;
-}
-
-.remove-btn{
+.error-message h3{
   color:#ff7777;
-  background:none!important;
-  width:auto!important;
+  margin-bottom:12px;
 }
 
-.cart-total{
-  font-size:24px;
-  font-weight:bold;
+.error-message p{
+  color:#d8bfc3;
+  font-size:14px;
+  word-break:break-word;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  text-align:center;
+  padding:40px 20px;
+  background:#02090d;
+  color:#71868d;
+}
+
+footer strong{
   color:#55e6c1;
-  text-align:right;
-  margin-top:25px;
 }
 
-/* CHECKOUT */
+/* =========================
+   TABLET
+========================= */
 
-.checkout-form{
-  display:flex;
-  flex-direction:column;
-  gap:13px;
-}
-
-.checkout-form input,
-.checkout-form textarea{
-  width:100%;
-  padding:14px;
-  background:#0b2731;
-  border:1px solid #24444e;
-  color:#fff;
-  border-radius:10px;
-  outline:none;
-  font-family:inherit;
-}
-
-.checkout-form textarea{
-  min-height:90px;
-  resize:vertical;
-}
-
-.checkout-form input:focus,
-.checkout-form textarea:focus{
-  border-color:#55e6c1;
-}
-
-#checkoutMessage{
-  margin-top:20px;
-}
-
-/* MOBILE */
-
-@media(max-width:700px){
+@media(max-width:850px){
 
   .nav-links{
     display:none;
   }
 
-  .hero{
-    min-height:540px;
+  .menu-button{
+    display:flex;
   }
 
   .about{
     grid-template-columns:1fr;
   }
 
+  .about img{
+    height:350px;
+  }
+
+  .products,
+  .product-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .services{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .gallery{
+    grid-template-columns:1fr 1fr;
+  }
+
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:520px){
+
+  nav{
+    padding:14px 16px;
+  }
+
+  .logo{
+    font-size:16px;
+  }
+
+  .hero{
+    padding-left:18px;
+    padding-right:18px;
+  }
+
+  .hero h1{
+    font-size:52px;
+  }
+
+  .hero p{
+    font-size:17px;
+  }
+
+  .hero-sub{
+    font-size:15px!important;
+  }
+
+  .button{
+    padding:13px 22px;
+  }
+
   section{
-    padding:60px 0;
+    padding:75px 18px;
+  }
+
+  .products,
+  .product-grid,
+  .services,
+  .gallery{
+    grid-template-columns:1fr;
+  }
+
+  .category-image,
+  .category-card img{
+    height:220px;
+  }
+
+  .product-card img{
+    height:240px;
+  }
+
+  .gallery img{
+    height:250px;
   }
 
   .section-title h2{
-    font-size:30px;
+    font-size:34px;
   }
 
-  .cart-panel{
-    max-width:100%;
+  .about-text h2{
+    font-size:34px;
   }
+
+  .contact-box{
+    padding:40px 20px;
+  }
+
+  .contact-box h2{
+    font-size:31px;
+  }
+
 }
+
+/* =========================
+   SMALL SCREEN
+========================= */
+
+@media(max-width:360px){
+
+  .logo{
+    font-size:14px;
+  }
+
+  .hero h1{
+    font-size:45px;
+  }
+
+}
+
+/* =========================
+   NO PRODUCTS DISPLAY
+========================= */
+
+.hidden{
+  display:none!important;
+}
+
 </style>
 </head>
-
 <body>
-
-<!-- HEADER -->
-
+<!-- =========================
+     HEADER
+========================= -->
 <header>
-  <div class="container nav">
-
-    <div class="logo">
-      Dwaraka Fish Farm
-    </div>
-
-    <div class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#products">Fish</a>
-      <a href="#services">Services</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#contact">Contact</a>
-    </div>
-
-  </div>
-</header>
-
-
-<!-- HERO -->
-
-<section class="hero" id="home">
-  <div class="container">
-
-    <div class="hero-content">
-
-      <h1>
-        Bring Your Aquarium
-        <span>To Life.</span>
-      </h1>
-
-      <p>
-        Premium ornamental fish, aquariums and aquatic products
-        from Dwaraka Fish Farm.
-      </p>
-
-      <a href="#products" class="button">
-        Explore Fish
-      </a>
-
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ABOUT -->
-
-<section id="about">
-
-  <div class="container">
-
-    <div class="about">
-
-      <img src="images/about.jpg" alt="Dwaraka Fish Farm">
-
-      <div class="about-text">
-
-        <div class="section-title">
-          <h2>About Dwaraka Fish Farm</h2>
-          <p>Passion for aquariums and ornamental fish.</p>
-        </div>
-
-        <p>
-          Dwaraka Fish Farm provides ornamental fish,
-          aquarium products and aquarium solutions for hobbyists.
-        </p>
-
-        <p>
-          Browse our available fish varieties, check stock and
-          place your order directly through our website.
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- PRODUCTS -->
-
-<section id="products">
-
-  <div class="container">
-
-    <div class="section-title">
-      <h2>Our Collection</h2>
-      <p>Choose a category to explore available varieties.</p>
-    </div>
-
-    <div class="categories" id="categories">
-      <p style="color:#8fa7ae;">
-        Loading categories...
-      </p>
-    </div>
-
-    <div class="products" id="productsGrid">
-      <p style="color:#8fa7ae;">
-        Loading products...
-      </p>
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- SERVICES -->
-
-<section id="services">
-
-  <div class="container">
-
-    <div class="section-title">
-      <h2>Our Services</h2>
-      <p>More than just fish.</p>
-    </div>
-
-    <div class="services">
-
-      <div class="service">
-        <h3>🐟 Ornamental Fish</h3>
-        <p>
-          A variety of aquarium fish for beginners and
-          experienced hobbyists.
-        </p>
-      </div>
-
-      <div class="service">
-        <h3>🏠 Aquariums</h3>
-        <p>
-          Aquarium setups and custom aquarium solutions.
-        </p>
-      </div>
-
-      <div class="service">
-        <h3>🌿 Aquatic Plants</h3>
-        <p>
-          Plants and aquatic products for beautiful aquariums.
-        </p>
-      </div>
-
-      <div class="service">
-        <h3>📦 Delivery</h3>
-        <p>
-          Carefully packed orders prepared for safe delivery.
-        </p>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- GALLERY -->
-
-<section id="gallery">
-
-  <div class="container">
-
-    <div class="section-title">
-      <h2>Gallery</h2>
-      <p>Life at Dwaraka Fish Farm.</p>
-    </div>
-
-    <div class="gallery">
-
-      <img src="images/gallery1.jpg" alt="Fish">
-      <img src="images/gallery2.jpg" alt="Aquarium">
-      <img src="images/gallery3.jpg" alt="Ornamental Fish">
-      <img src="images/gallery4.jpg" alt="Aquarium Fish">
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- CONTACT -->
-
-<section id="contact">
-
-  <div class="container">
-
-    <div class="section-title">
-      <h2>Contact Us</h2>
-      <p>Get in touch with Dwaraka Fish Farm.</p>
-    </div>
-
-    <div class="contact-box">
-
-      <p>
-        📍 Kozhikode, Kerala
-      </p>
-
-      <p>
-        📞 Contact us for availability and orders
-      </p>
-
-      <p>
-        💬 WhatsApp available
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- FOOTER -->
-
-<footer>
-
-  <div class="container">
-    © 2026 Dwaraka Fish Farm. All rights reserved.
-  </div>
-
-</footer>
-
-
-<!-- FLOATING CART -->
-
-<button class="cart-button" onclick="openCart()">
-
-  🛒
-
-  <span class="cart-count" id="cartCount">
-    0
-  </span>
-
+<nav>
+<a href="#home" class="logo">
+🐟 DWARAKA FISH FARM
+</a>
+<ul class="nav-links">
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#products">Fish</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#gallery">Gallery</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<!-- MOBILE MENU BUTTON -->
+<button class=“menu-button” id=“menuButton” onclick=“toggleMobileMenu()” aria-label=“Open menu”
+  
 </button>
-
-
-<!-- CART -->
-
+</nav>
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+<a href="#home" onclick="closeMobileMenu()">
+Home
+</a>
+<a href="#about" onclick="closeMobileMenu()">
+About
+</a>
+<button class=“mobile-category-button” onclick=“toggleMobileCategories()”
+🐟 Fish Categories
+＋
+</button>
 <div
-  class="cart-overlay"
-  id="cartOverlay"
-  onclick="closeCart(event)"
+  class="mobile-category-list"
+  id="mobileCategoryList"
 >
-
-  <div class="cart-panel">
-
-    <div class="cart-header">
-
-      <h2>🛒 Your Cart</h2>
-
-      <button
-        class="close-cart"
-        onclick="closeCart()"
-      >
-        ×
-      </button>
-
-    </div>
-
-    <div id="cartItems"></div>
-
-    <div
-      class="cart-total"
-      id="cartTotal"
-    >
-      Total: ₹0
-    </div>
-
-    <button
-      class="button"
-      style="width:100%;margin:25px 0 0;"
-      onclick="openCheckout()"
-    >
-      Proceed to Checkout
-    </button>
-
-  </div>
-
+<div id="mobileCategories">
+<div style="color:#71868d;padding:10px;">
+Loading categories...
 </div>
-
-
-<!-- CHECKOUT -->
-
+</div>
+</div>
+<a href="#services" onclick="closeMobileMenu()">
+Services
+</a>
+<a href="#gallery" onclick="closeMobileMenu()">
+Gallery
+</a>
+<a href="#contact" onclick="closeMobileMenu()">
+Contact
+</a>
+</div>
+</header>
+<!-- =========================
+     HERO
+========================= -->
+<section class="hero" id="home">
+<div class="hero-content">
+<h1>
+Dwaraka <span>Fish Farm</span>
+</h1>
+<p>
+Ornamental Fish • Aquariums • Aquarium Plants
+</p>
+<p class="hero-sub">
+Bringing the beauty of underwater life to your home.
+</p>
+<a href="#products" class="button">
+Explore Our Collection
+</a>
+<a href="#contact" class="button button-outline">
+Contact Us
+</a>
+</div>
+</section>
+<!-- =========================
+     ABOUT
+========================= -->
+<section id="about">
+<div class="container">
+<div class="about">
+<div class="about-text">
+<h2>About Dwaraka Fish Farm</h2>
+<p>
+Welcome to Dwaraka Fish Farm, your destination for
+beautiful ornamental fish, aquarium plants and
+aquarium solutions in Kozhikode, Kerala.
+</p>
+<p>
+We provide healthy and carefully maintained fish
+for hobbyists, beginners and aquarium enthusiasts.
+</p>
+<p>
+From individual fish to complete aquarium setups,
+we aim to make aquarium keeping simple, beautiful
+and enjoyable.
+</p>
+<a href="#contact" class="button">
+Visit Us
+</a>
+</div>
+<div>
+<img src=“images/farm.jpg” alt=“Dwaraka Fish Farm”
+</div>
+</div>
+</div>
+</section>
+<!-- =========================
+     PRODUCTS
+========================= -->
+<section id="products">
+<div class="container">
+<div class="section-title">
+<h2>Our Collection</h2>
+<p>
+Choose a category to explore our available varieties.
+</p>
+</div>
+<!-- CATEGORY GRID -->
 <div
-  class="cart-overlay"
-  id="checkoutOverlay"
+class="products"
+id="categoryGrid"
 >
-
-  <div class="cart-panel">
-
-    <div class="cart-header">
-
-      <h2>📦 Checkout</h2>
-
-      <button
-        class="close-cart"
-        onclick="closeCheckout()"
-      >
-        ×
-      </button>
-
-    </div>
-
-
-    <div id="checkoutSummary"></div>
-
-
-    <form
-      id="checkoutForm"
-      class="checkout-form"
-    >
-
-      <input
-        id="customerName"
-        type="text"
-        placeholder="Full Name"
-        required
-      >
-
-      <input
-        id="customerPhone"
-        type="tel"
-        placeholder="Phone Number"
-        required
-      >
-
-      <input
-        id="customerWhatsapp"
-        type="tel"
-        placeholder="WhatsApp Number (optional)"
-      >
-
-      <textarea
-        id="customerAddress"
-        placeholder="Full Delivery Address"
-        required
-      ></textarea>
-
-      <input
-        id="customerPincode"
-        type="text"
-        placeholder="Pincode"
-        maxlength="6"
-        required
-      >
-
-      <textarea
-        id="customerNotes"
-        placeholder="Delivery notes (optional)"
-      ></textarea>
-
-      <button
-        type="submit"
-        class="button"
-        id="placeOrderButton"
-      >
-        📦 Place Order
-      </button>
-
-    </form>
-
-
-    <div id="checkoutMessage"></div>
-
-  </div>
-
+<div class="loading">
+Connecting to Dwaraka Fish Farm database...
 </div>
-
-
+</div>
+<!-- PRODUCT AREA -->
+<div id="productArea"></div>
+</div>
+</section>
+<!-- =========================
+     SERVICES
+========================= -->
+<section id="services">
+<div class="container">
+<div class="section-title">
+<h2>What We Offer</h2>
+<p>
+Everything you need to create your own underwater world.
+</p>
+</div>
+<div class="services">
+<div class="service">
+<div class="icon">🐟</div>
+<h3>Ornamental Fish</h3>
+<p>
+Different varieties and colour strains.
+</p>
+</div>
+<div class="service">
+<div class="icon">🌿</div>
+<h3>Aquarium Plants</h3>
+<p>
+Plants for natural and planted aquariums.
+</p>
+</div>
+<div class="service">
+<div class="icon">🪟</div>
+<h3>Custom Aquariums</h3>
+<p>
+Aquarium construction and setup.
+</p>
+</div>
+<div class="service">
+<div class="icon">🚚</div>
+<h3>Delivery</h3>
+<p>
+Contact us for available delivery options.
+</p>
+</div>
+</div>
+</div>
+</section>
+<!-- =========================
+     GALLERY
+========================= -->
+<section id="gallery">
+<div class="container">
+<div class="section-title">
+<h2>Our Gallery</h2>
+<p>
+A glimpse into Dwaraka Fish Farm.
+</p>
+</div>
+<div class="gallery">
+<img src=“images/gallery1.png” alt=“Dwaraka Fish Farm”
+<img src=“images/gallery2.jpg” alt=“Ornamental fish”
+<img src=“images/gallery3.png” alt=“Aquarium”
+<img src=“images/gallery4.jpg” alt=“Aquarium fish”
+<img src=“images/gallery5.webp” alt=“Fish farm”
+<img src=“images/gallery6.jpg” alt=“Aquarium plants”
+</div>
+</div>
+</section>
+<!-- =========================
+     CONTACT
+========================= -->
+<section id="contact">
+<div class="container">
+<div class="contact-box">
+<h2>Visit Dwaraka Fish Farm</h2>
+<p>
+Have a question about fish, plants or aquariums?
+</p>
+<p>
+Contact us directly on WhatsApp or phone.
+</p>
+<a href=“https://wa.me/919495749236” class=“button”
+💬 WhatsApp Us
+</a>
+<a href=“tel:+919495749236” class=“button button-outline”
+📞 Call Us
+</a>
+<p>
+📱 9495749236
+</p>
+<p>
+📍 Kozhikode, Kerala, India
+</p>
+</div>
+</div>
+</section>
+<!-- =========================
+     FOOTER
+========================= -->
+<footer>
+<p>
+© 2026 <strong>Dwaraka Fish Farm</strong>
+</p>
+<p>
+Ornamental Fish • Aquariums • Aquarium Plants
+</p>
+</footer>
+<!-- =========================
+     SUPABASE
+========================= -->
 <script>
-
-/* =========================================================
-   SUPABASE
-========================================================= */
 
 const SUPABASE_REST_URL =
 "https://igrmwmevgcrkrmuvimlg.supabase.co/rest/v1";
 
 
-/*
-  IMPORTANT:
-  Keep the SAME anon key that is already working
-  in your current website.
-*/
-
 const SUPABASE_ANON_KEY =
-"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imlncm13bWV2Z2Nya3JtdXZpbWxnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAwNTI3ODMsImV4cCI6MjEwNTYyODc4M30.0XlWhgb7Rspa63xGfUSdM155kH2NZ-vPgCUHHlBlnxI";
+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imlncm13bWV2Z2Nya3JtdXZpbGciLCJyb2xlIjoiYW5vbiIsImlhdCI6MTc5MDA1Mjc4MywiZXhwIjoyMTA1NjI4NzgzfQ.0XlWhgb7Rspa63xGfUSdM155kH2NZ-vPgCUHHlBlnxI";
 
 
-/* =========================================================
-   CART
-========================================================= */
+/* =========================
+   MOBILE MENU
+========================= */
 
-let cart = JSON.parse(
-  localStorage.getItem("dwarakaCart") || "[]"
-);
+function toggleMobileMenu(){
 
+  const menu =
+    document.getElementById("mobileMenu");
 
-function saveCart(){
+  const button =
+    document.getElementById("menuButton");
 
-  localStorage.setItem(
-    "dwarakaCart",
-    JSON.stringify(cart)
-  );
+  menu.classList.toggle("open");
 
-  updateCartCount();
+  button.classList.toggle("active");
+
 }
 
 
-function updateCartCount(){
+function closeMobileMenu(){
 
-  const count =
-    cart.reduce(
-      (total,item) =>
-      total + item.quantity,
-      0
-    );
+  const menu =
+    document.getElementById("mobileMenu");
 
-  document.getElementById("cartCount")
-    .textContent = count;
+  const button =
+    document.getElementById("menuButton");
+
+  menu.classList.remove("open");
+
+  button.classList.remove("active");
+
 }
 
 
-/* =========================================================
-   ADD TO CART
-========================================================= */
+function toggleMobileCategories(){
 
-function addToCart(product){
+  const list =
+    document.getElementById("mobileCategoryList");
 
-  const existing =
-    cart.find(
-      item => item.id === product.id
-    );
+  const arrow =
+    document.getElementById("categoryArrow");
 
+  list.classList.toggle("open");
 
-  if(existing){
+  arrow.textContent =
+    list.classList.contains("open")
+    ? "−"
+    : "＋";
 
-    if(
-      existing.quantity <
-      product.stock
-    ){
-
-      existing.quantity++;
-
-    }else{
-
-      alert(
-        "You cannot add more than the available stock."
-      );
-
-      return;
-    }
-
-  }else{
-
-    cart.push({
-
-      id:product.id,
-
-      name:product.name,
-
-      variety:
-        product.variety || "",
-
-      price:
-        Number(product.price) || 0,
-
-      image:
-        product.image ||
-        "images/hero.jpg",
-
-      stock:
-        Number(product.stock) || 0,
-
-      quantity:1
-
-    });
-
-  }
-
-
-  saveCart();
-
-  alert(
-    product.name +
-    " added to cart!"
-  );
 }
 
 
-/* =========================================================
-   OPEN CART
-========================================================= */
-
-function openCart(){
-
-  document
-    .getElementById("cartOverlay")
-    .classList.add("active");
-
-  renderCart();
-}
-
-
-/* =========================================================
-   CLOSE CART
-========================================================= */
-
-function closeCart(event){
-
-  if(
-    event &&
-    event.target !==
-    document.getElementById("cartOverlay")
-  ){
-
-    return;
-  }
-
-  document
-    .getElementById("cartOverlay")
-    .classList.remove("active");
-}
-
-
-/* =========================================================
-   RENDER CART
-========================================================= */
-
-function renderCart(){
-
-  const container =
-    document.getElementById("cartItems");
-
-  const totalElement =
-    document.getElementById("cartTotal");
-
-
-  if(cart.length === 0){
-
-    container.innerHTML = `
-      <div style="
-        text-align:center;
-        padding:50px 10px;
-        color:#8fa7ae;
-      ">
-        <div style="font-size:50px;">
-          🛒
-        </div>
-
-        <p>
-          Your cart is empty.
-        </p>
-      </div>
-    `;
-
-    totalElement.textContent =
-      "Total: ₹0";
-
-    return;
-  }
-
-
-  container.innerHTML =
-    cart.map(item => `
-
-      <div class="cart-item">
-
-        <img
-          src="${item.image}"
-          alt="${item.name}"
-        >
-
-        <div class="cart-item-info">
-
-          <h4>
-            ${item.name}
-          </h4>
-
-          <div class="variety">
-            ${item.variety}
-          </div>
-
-          <div class="cart-item-price">
-            ₹${item.price}
-          </div>
-
-          <div class="quantity-controls">
-
-            <button
-              onclick="changeQuantity(${item.id},-1)"
-            >
-              −
-            </button>
-
-            <span>
-              ${item.quantity}
-            </span>
-
-            <button
-              onclick="changeQuantity(${item.id},1)"
-            >
-              +
-            </button>
-
-            <button
-              class="remove-btn"
-              onclick="removeFromCart(${item.id})"
-            >
-              Remove
-            </button>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    `).join("");
-
-
-  totalElement.textContent =
-    "Total: ₹" +
-    calculateCartTotal();
-}
-
-
-/* =========================================================
-   CHANGE QUANTITY
-========================================================= */
-
-function changeQuantity(id,change){
-
-  const item =
-    cart.find(
-      item => item.id === id
-    );
-
-  if(!item) return;
-
-
-  const newQuantity =
-    item.quantity + change;
-
-
-  if(newQuantity <= 0){
-
-    removeFromCart(id);
-
-    return;
-  }
-
-
-  if(newQuantity > item.stock){
-
-    alert(
-      "Only " +
-      item.stock +
-      " available in stock."
-    );
-
-    return;
-  }
-
-
-  item.quantity =
-    newQuantity;
-
-
-  saveCart();
-
-  renderCart();
-}
-
-
-/* =========================================================
-   REMOVE FROM CART
-========================================================= */
-
-function removeFromCart(id){
-
-  cart =
-    cart.filter(
-      item => item.id !== id
-    );
-
-  saveCart();
-
-  renderCart();
-}
-
-
-/* =========================================================
-   CALCULATE TOTAL
-========================================================= */
-
-function calculateCartTotal(){
-
-  return cart.reduce(
-    (total,item) =>
-      total +
-      (
-        item.price *
-        item.quantity
-      ),
-    0
-  );
-}
-
-
-/* =========================================================
-   CHECKOUT
-========================================================= */
-
-function openCheckout(){
-
-  if(cart.length === 0){
-
-    alert(
-      "Your cart is empty."
-    );
-
-    return;
-  }
-
-
-  const total =
-    calculateCartTotal();
-
-
-  const itemCount =
-    cart.reduce(
-      (sum,item) =>
-      sum + item.quantity,
-      0
-    );
-
-
-  document
-    .getElementById("checkoutSummary")
-    .innerHTML = `
-
-      <div style="
-        background:#09212b;
-        padding:15px;
-        border-radius:12px;
-        margin-bottom:20px;
-      ">
-
-        <p style="
-          color:#9db5bc;
-        ">
-          Items: ${itemCount}
-        </p>
-
-        <p style="
-          color:#55e6c1;
-          font-size:22px;
-          font-weight:bold;
-          margin-top:5px;
-        ">
-          Total: ₹${total}
-        </p>
-
-      </div>
-
-    `;
-
-
-  document
-    .getElementById("cartOverlay")
-    .classList.remove("active");
-
-
-  document
-    .getElementById("checkoutOverlay")
-    .classList.add("active");
-}
-
-
-/* =========================================================
-   CLOSE CHECKOUT
-========================================================= */
-
-function closeCheckout(){
-
-  document
-    .getElementById("checkoutOverlay")
-    .classList.remove("active");
-}
-
-
-/* =========================================================
-   PLACE ORDER
-========================================================= */
-
-document
-  .getElementById("checkoutForm")
-  .addEventListener(
-    "submit",
-    async function(event){
-
-      event.preventDefault();
-
-
-      if(cart.length === 0){
-
-        alert(
-          "Your cart is empty."
-        );
-
-        return;
+/* =========================
+   SUPABASE REQUEST
+========================= */
+
+async function supabaseRequest(endpoint){
+
+  const response = await fetch(
+    SUPABASE_REST_URL + endpoint,
+    {
+      method:"GET",
+
+      headers:{
+        "apikey":SUPABASE_ANON_KEY,
+        "Authorization":"Bearer " + SUPABASE_ANON_KEY,
+        "Content-Type":"application/json"
       }
-
-
-      const button =
-        document.getElementById(
-          "placeOrderButton"
-        );
-
-
-      const message =
-        document.getElementById(
-          "checkoutMessage"
-        );
-
-
-      button.disabled = true;
-
-      button.textContent =
-        "Placing Order...";
-
-      message.innerHTML = "";
-
-
-      const orderData = {
-
-        customer_name:
-          document
-            .getElementById(
-              "customerName"
-            )
-            .value
-            .trim(),
-
-        phone:
-          document
-            .getElementById(
-              "customerPhone"
-            )
-            .value
-            .trim(),
-
-        whatsapp:
-          document
-            .getElementById(
-              "customerWhatsapp"
-            )
-            .value
-            .trim(),
-
-        address:
-          document
-            .getElementById(
-              "customerAddress"
-            )
-            .value
-            .trim(),
-
-        pincode:
-          document
-            .getElementById(
-              "customerPincode"
-            )
-            .value
-            .trim(),
-
-        notes:
-          document
-            .getElementById(
-              "customerNotes"
-            )
-            .value
-            .trim(),
-
-        items:cart,
-
-        total:
-          calculateCartTotal(),
-
-        status:"pending"
-
-      };
-
-
-      try{
-
-        const response =
-          await fetch(
-
-            SUPABASE_REST_URL +
-            "/orders",
-
-            {
-
-              method:"POST",
-
-              headers:{
-
-                "apikey":
-                  SUPABASE_ANON_KEY,
-
-                "Authorization":
-                  "Bearer " +
-                  SUPABASE_ANON_KEY,
-
-                "Content-Type":
-                  "application/json",
-
-                "Prefer":
-                  "return=representation"
-
-              },
-
-              body:
-                JSON.stringify(
-                  orderData
-                )
-
-            }
-
-          );
-
-
-        const result =
-          await response.json();
-
-
-        if(!response.ok){
-
-          throw new Error(
-
-            result.message ||
-            result.hint ||
-            result.error ||
-            "Unable to place order."
-
-          );
-
-        }
-
-
-        const order =
-          Array.isArray(result)
-          ? result[0]
-          : result;
-
-
-        message.innerHTML = `
-
-          <div style="
-            background:#092b25;
-            padding:20px;
-            border-radius:15px;
-            border:1px solid #55e6c1;
-          ">
-
-            <div style="
-              font-size:40px;
-              margin-bottom:10px;
-            ">
-              ✅
-            </div>
-
-            <h3 style="
-              color:#55e6c1;
-              margin-bottom:8px;
-            ">
-              Order Placed Successfully!
-            </h3>
-
-            <p style="
-              color:#b9cbd0;
-            ">
-              Thank you for ordering
-              from Dwaraka Fish Farm.
-            </p>
-
-            ${
-              order && order.id
-              ? `
-
-                <p style="
-                  margin-top:10px;
-                  color:#fff;
-                ">
-
-                  Order ID:
-                  <strong>
-                    #${order.id}
-                  </strong>
-
-                </p>
-
-              `
-              : ""
-            }
-
-          </div>
-
-        `;
-
-
-        cart = [];
-
-        saveCart();
-
-
-        document
-          .getElementById(
-            "checkoutForm"
-          )
-          .reset();
-
-
-        button.textContent =
-          "Order Placed ✓";
-
-
-      }
-      catch(error){
-
-        console.error(
-          "ORDER ERROR:",
-          error
-        );
-
-
-        message.innerHTML = `
-
-          <div style="
-            background:#35191d;
-            padding:15px;
-            border-radius:12px;
-            color:#ff9999;
-          ">
-
-            ❌
-            ${error.message}
-
-          </div>
-
-        `;
-
-
-        button.disabled = false;
-
-        button.textContent =
-          "📦 Place Order";
-
-      }
-
     }
   );
 
 
-/* =========================================================
-   LOAD CATEGORIES
-========================================================= */
+  const text =
+    await response.text();
 
-async function loadCategories(){
 
-  const container =
-    document.getElementById(
-      "categories"
-    );
+  let data;
 
 
   try{
 
-    const response =
-      await fetch(
-
-        SUPABASE_REST_URL +
-        "/categories?select=id,name,image&order=id.asc",
-
-        {
-
-          headers:{
-
-            "apikey":
-              SUPABASE_ANON_KEY,
-
-            "Authorization":
-              "Bearer " +
-              SUPABASE_ANON_KEY
-
-          }
-
-        }
-
-      );
-
-
-    if(!response.ok){
-
-      throw new Error(
-        "Unable to load categories."
-      );
-    }
-
-
-    const categories =
-      await response.json();
-
-
-    if(categories.length === 0){
-
-      container.innerHTML =
-        "<p>No categories available.</p>";
-
-      return;
-    }
-
-
-    container.innerHTML =
-      categories.map(category => `
-
-        <div
-          class="category-card"
-          onclick="loadProducts(${category.id})"
-        >
-
-          <img
-            src="${
-              category.image ||
-              "images/hero.jpg"
-            }"
-            alt="${category.name}"
-          >
-
-          <h3>
-            ${category.name}
-          </h3>
-
-        </div>
-
-      `).join("");
-
+    data =
+      JSON.parse(text);
 
   }
-  catch(error){
+  catch{
 
-    console.error(
-      "CATEGORY ERROR:",
-      error
+    data = text;
+
+  }
+
+
+  if(!response.ok){
+
+    throw new Error(
+      "HTTP " +
+      response.status +
+      ": " +
+      (
+        data.message ||
+        data.hint ||
+        data.error ||
+        data ||
+        "Unknown error"
+      )
     );
 
-
-    container.innerHTML = `
-
-      <p style="color:#ff8888;">
-        Failed to load categories.
-      </p>
-
-    `;
   }
+
+
+  return data;
+
 }
 
 
-/* =========================================================
-   LOAD ALL PRODUCTS
-========================================================= */
+/* =========================
+   CATEGORY ICON
+========================= */
 
-async function loadAllProducts(){
+function getCategoryIcon(name){
 
-  await loadProducts();
+  const n =
+    name.toLowerCase();
+
+
+  if(n.includes("guppy")) return "🐟";
+
+  if(n.includes("tetra")) return "🐠";
+
+  if(n.includes("barb")) return "🐟";
+
+  if(n.includes("molly")) return "🐠";
+
+  if(n.includes("platy")) return "🐟";
+
+  if(n.includes("betta")) return "🐠";
+
+  if(n.includes("cichlid")) return "🐟";
+
+  if(n.includes("goldfish")) return "🐠";
+
+  if(n.includes("koi")) return "🐟";
+
+  if(n.includes("shrimp")) return "🦐";
+
+  if(n.includes("snail")) return "🐌";
+
+  if(n.includes("plant")) return "🌿";
+
+  if(n.includes("aquarium")) return "🪟";
+
+  if(n.includes("accessor")) return "⚙️";
+
+
+  return "🐟";
+
 }
 
 
-/* =========================================================
-   LOAD PRODUCTS
-========================================================= */
+/* =========================
+   LOAD CATEGORIES
+========================= */
 
-async function loadProducts(categoryId = null){
+async function loadCategories(){
 
-  const container =
-    document.getElementById(
-      "productsGrid"
-    );
+  const categoryGrid =
+    document.getElementById("categoryGrid");
 
 
-  container.innerHTML = `
+  const mobileCategories =
+    document.getElementById("mobileCategories");
 
-    <p style="
-      color:#8fa7ae;
-    ">
-      Loading products...
-    </p>
+
+  categoryGrid.innerHTML = `
+
+    <div class="loading">
+      Connecting to Dwaraka Fish Farm database...
+    </div>
 
   `;
 
 
   try{
 
-    let url =
-      SUPABASE_REST_URL +
-      "/products?select=*&active=eq.true&order=id.asc";
-
-
-    if(categoryId){
-
-      url =
-        SUPABASE_REST_URL +
-        "/products?select=*&category_id=eq." +
-        categoryId +
-        "&active=eq.true&order=id.asc";
-    }
-
-
-    const response =
-      await fetch(
-
-        url,
-
-        {
-
-          headers:{
-
-            "apikey":
-              SUPABASE_ANON_KEY,
-
-            "Authorization":
-              "Bearer " +
-              SUPABASE_ANON_KEY
-
-          }
-
-        }
-
+    const data =
+      await supabaseRequest(
+        "/categories?select=id,name,image,description&order=id.asc"
       );
 
 
-    if(!response.ok){
+    if(!data || data.length === 0){
 
-      throw new Error(
-        "Unable to load products."
-      );
-    }
+      categoryGrid.innerHTML = `
 
+        <div class="empty-message">
 
-    const products =
-      await response.json();
+          <h3>No Categories Found</h3>
 
+          <p>
+            The database is connected,
+            but no categories have been added yet.
+          </p>
 
-    if(products.length === 0){
-
-      container.innerHTML = `
-
-        <p style="
-          color:#8fa7ae;
-        ">
-          No products available
-          in this category.
-        </p>
+        </div>
 
       `;
 
+
+      mobileCategories.innerHTML = `
+
+        <div style="color:#71868d;padding:10px;">
+          No categories available.
+        </div>
+
+      `;
+
+
       return;
+
     }
 
 
-    container.innerHTML =
-      products.map(product => `
+    /* DESKTOP / MAIN CATEGORY CARDS */
 
-        <div class="product-card">
+    categoryGrid.innerHTML =
+      data.map(category => {
 
+
+        const icon =
+          getCategoryIcon(category.name);
+
+
+        const image =
+          category.image &&
+          category.image.trim() !== ""
+
+          ?
+
+          `
           <img
-            src="${
-              product.image ||
-              "images/hero.jpg"
-            }"
-            alt="${product.name}"
+            src="${category.image}"
+            alt="${category.name}"
+          >
+          `
+
+          :
+
+          `
+          <div class="category-image">
+            ${icon}
+          </div>
+          `;
+
+
+        const description =
+          category.description &&
+          category.description.trim() !== ""
+
+          ?
+
+          category.description
+
+          :
+
+          "Explore available varieties.";
+
+
+        return `
+
+          <div
+            class="card category-card"
+            onclick="loadProducts(
+              ${category.id},
+              '${escapeJS(category.name)}'
+            )"
           >
 
-          <div class="product-info">
+            ${image}
 
-            <h3>
-              ${product.name}
-            </h3>
+            <div class="category-content">
 
-            <div class="variety">
-              ${product.variety || ""}
-            </div>
+              <h3>
+                ${escapeHTML(category.name)}
+              </h3>
 
-            <div class="description">
-              ${
-                product.description ||
-                "Quality ornamental fish."
-              }
-            </div>
-
-            <div class="product-meta">
-
-              <span>
-                Size:
-                ${product.size || "N/A"}
-              </span>
-
-              <span class="stock">
-
-                ${
-                  Number(product.stock) > 0
-                  ? product.stock + " available"
-                  : "Out of stock"
-                }
-
-              </span>
-
-            </div>
-
-            <div style="
-              display:flex;
-              justify-content:space-between;
-              align-items:center;
-              gap:10px;
-            ">
-
-              <div class="price">
-                ₹${product.price}
-              </div>
-
-              <button
-                class="button"
-                onclick='addToCart(${JSON.stringify(product)})'
-                ${
-                  Number(product.stock) <= 0
-                  ? "disabled"
-                  : ""
-                }
-              >
-
-                ${
-                  Number(product.stock) > 0
-                  ? "🛒 Add to Cart"
-                  : "Out of Stock"
-                }
-
-              </button>
+              <p>
+                ${escapeHTML(description)}
+              </p>
 
             </div>
 
           </div>
 
-        </div>
+        `;
 
-      `).join("");
+      }).join("");
+
+
+    /* MOBILE CATEGORY MENU */
+
+    mobileCategories.innerHTML =
+      data.map(category => {
+
+        return `
+
+          <button
+            onclick="mobileCategoryClick(
+              ${category.id},
+              '${escapeJS(category.name)}'
+            )"
+          >
+
+            ${getCategoryIcon(category.name)}
+            &nbsp;
+            ${escapeHTML(category.name)}
+
+          </button>
+
+        `;
+
+      }).join("");
 
 
   }
+
   catch(error){
 
     console.error(
-      "PRODUCT ERROR:",
+      "SUPABASE CATEGORY ERROR:",
       error
     );
 
 
-    container.innerHTML = `
+    categoryGrid.innerHTML = `
 
-      <p style="
-        color:#ff8888;
-      ">
-        Failed to load products.
-      </p>
+      <div class="error-message">
+
+        <h3>
+          Database Connection Error
+        </h3>
+
+        <p>
+          ${escapeHTML(error.message)}
+        </p>
+
+        <p style="margin-top:15px;">
+          Please check your Supabase URL,
+          anon public key and RLS policy.
+        </p>
+
+      </div>
 
     `;
+
   }
+
 }
 
 
-/* =========================================================
+/* =========================
+   MOBILE CATEGORY CLICK
+========================= */
+
+function mobileCategoryClick(
+  categoryId,
+  categoryName
+){
+
+  closeMobileMenu();
+
+  document.getElementById("products")
+    .scrollIntoView({
+      behavior:"smooth",
+      block:"start"
+    });
+
+
+  setTimeout(() => {
+
+    loadProducts(
+      categoryId,
+      categoryName
+    );
+
+  },350);
+
+}
+
+
+/* =========================
+   LOAD PRODUCTS
+========================= */
+
+async function loadProducts(
+  categoryId,
+  categoryName
+){
+
+  const productArea =
+    document.getElementById("productArea");
+
+
+  productArea.innerHTML = `
+
+    <div class="product-title">
+
+      <h3>
+        ${escapeHTML(categoryName)}
+      </h3>
+
+      <p>
+        Loading available varieties...
+      </p>
+
+    </div>
+
+  `;
+
+
+  try{
+
+    const data =
+      await supabaseRequest(
+
+        "/products?select=id,category_id,name,variety,description,size,price,stock,image,active&category_id=eq."
+        + categoryId
+        + "&active=eq.true&order=id.asc"
+
+      );
+
+
+    if(!data || data.length === 0){
+
+      productArea.innerHTML = `
+
+        <div class="product-title">
+
+          <h3>
+            ${escapeHTML(categoryName)}
+          </h3>
+
+        </div>
+
+
+        <div class="empty-message">
+
+          No varieties have been added
+          to this category yet.
+
+        </div>
+
+      `;
+
+
+      return;
+
+    }
+
+
+    productArea.innerHTML = `
+
+      <div class="product-title">
+
+        <h3>
+          ${escapeHTML(categoryName)}
+        </h3>
+
+        <p>
+          Available varieties
+        </p>
+
+      </div>
+
+
+      <button
+        class="back-button"
+        onclick="backToCategories()"
+      >
+
+        ← Back to Categories
+
+      </button>
+
+
+      <div class="product-grid">
+
+        ${
+          data.map(product => {
+
+            const image =
+              product.image &&
+              product.image.trim() !== ""
+
+              ?
+
+              product.image
+
+              :
+
+              "images/hero.jpg";
+
+
+            return `
+
+              <div class="product-card">
+
+                <img
+                  src="${escapeHTML(image)}"
+                  alt="${escapeHTML(product.name)}"
+                  onerror="this.src='images/hero.jpg'"
+                >
+
+
+                <div class="product-info">
+
+                  <h3>
+                    ${escapeHTML(product.name)}
+                  </h3>
+
+
+                  ${
+                    product.variety
+
+                    ?
+
+                    `
+                    <div class="variety">
+                      ${escapeHTML(product.variety)}
+                    </div>
+                    `
+
+                    :
+
+                    ""
+                  }
+
+
+                  ${
+                    product.description
+
+                    ?
+
+                    `
+                    <p>
+                      ${escapeHTML(product.description)}
+                    </p>
+                    `
+
+                    :
+
+                    ""
+                  }
+
+
+                  ${
+                    product.size
+
+                    ?
+
+                    `
+                    <p>
+                      📏 Size: ${escapeHTML(product.size)}
+                    </p>
+                    `
+
+                    :
+
+                    ""
+                  }
+
+
+                  ${
+                    product.price !== null
+
+                    ?
+
+                    `
+                    <p class="price">
+                      ₹${escapeHTML(String(product.price))}
+                    </p>
+                    `
+
+                    :
+
+                    ""
+                  }
+
+
+                  ${
+                    Number(product.stock) > 0
+
+                    ?
+
+                    `
+                    <p class="stock">
+                      ✓ In Stock: ${escapeHTML(String(product.stock))}
+                    </p>
+                    `
+
+                    :
+
+                    `
+                    <p class="out-stock">
+                      Out of Stock
+                    </p>
+                    `
+                  }
+
+                </div>
+
+              </div>
+
+            `;
+
+          }).join("")
+        }
+
+      </div>
+
+    `;
+
+
+    productArea.scrollIntoView({
+      behavior:"smooth",
+      block:"start"
+    });
+
+  }
+
+
+  catch(error){
+
+    console.error(
+      "SUPABASE PRODUCT ERROR:",
+      error
+    );
+
+
+    productArea.innerHTML = `
+
+      <div class="error-message">
+
+        <h3>
+          Product Database Error
+        </h3>
+
+        <p>
+          ${escapeHTML(error.message)}
+        </p>
+
+      </div>
+
+    `;
+
+  }
+
+}
+
+
+/* =========================
+   BACK TO CATEGORIES
+========================= */
+
+function backToCategories(){
+
+  const productArea =
+    document.getElementById("productArea");
+
+
+  productArea.innerHTML = "";
+
+
+  document.getElementById("categoryGrid")
+    .scrollIntoView({
+      behavior:"smooth",
+      block:"center"
+    });
+
+}
+
+
+/* =========================
+   SECURITY / TEXT HELPERS
+========================= */
+
+function escapeHTML(value){
+
+  return String(value ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+function escapeJS(value){
+
+  return String(value ?? "")
+    .replace(/\\/g,"\\\\")
+    .replace(/'/g,"\\'")
+    .replace(/\n/g,"\\n")
+    .replace(/\r/g,"\\r");
+
+}
+
+
+/* =========================
+   CLOSE MOBILE MENU
+   WHEN CLICKING OUTSIDE
+========================= */
+
+document.addEventListener(
+  "click",
+  function(event){
+
+    const menu =
+      document.getElementById("mobileMenu");
+
+    const button =
+      document.getElementById("menuButton");
+
+
+    if(
+      menu.classList.contains("open") &&
+      !menu.contains(event.target) &&
+      !button.contains(event.target)
+    ){
+
+      closeMobileMenu();
+
+    }
+
+  }
+);
+
+
+/* =========================
    START WEBSITE
-========================================================= */
+========================= */
 
 loadCategories();
 
-loadAllProducts();
-
-updateCartCount();
-
 </script>
-
 </body>
 </html>
